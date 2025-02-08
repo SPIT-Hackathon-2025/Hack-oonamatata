@@ -12,6 +12,14 @@ export default defineSchema({
     lemonSqueezyOrderId: v.optional(v.string()),
   }).index("by_user_id", ["userId"]),
 
+  files: defineTable({
+    userId: v.string(),
+    name: v.string(),
+    type: v.string(), // "file" | "folder"
+    content: v.optional(v.string()),
+    parentId: v.optional(v.string()),
+  }).index("by_user_id", ["userId"]),
+
   codeExecutions: defineTable({
     userId: v.string(),
     language: v.string(),
